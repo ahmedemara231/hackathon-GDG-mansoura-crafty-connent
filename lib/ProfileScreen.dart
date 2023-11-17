@@ -56,58 +56,66 @@ class _ProfileState extends State<Profile> {
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Stack(
-            alignment: Alignment.bottomRight,
-            children: [
-              Container(
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30)
-                ),
-                height: MediaQuery.of(context).size.height/5,
-                width: MediaQuery.of(context).size.width/2,
-                child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdX029ohIUSygq9zirl9fSNBwSLqEOaKEYuw&usqp=CAU'),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView(
+          children: [
+            Align(
+              alignment:Alignment.center,
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  Container(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30)
+                    ),
+                    height: MediaQuery.of(context).size.height/5,
+                    width: MediaQuery.of(context).size.width/2,
+                    child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdX029ohIUSygq9zirl9fSNBwSLqEOaKEYuw&usqp=CAU'),
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.black,
+                    child: IconButton(
+                        onPressed: () {},
+                        color: Colors.white,
+                        icon: const Icon(Icons.camera_alt_outlined)),
+                  ),
+                ],
               ),
-              CircleAvatar(
-                backgroundColor: Colors.black,
-                child: IconButton(
-                    onPressed: () {},
-                    color: Colors.white,
-                    icon: const Icon(Icons.camera_alt_outlined)),
-              ),
-            ],
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) => fields[index],
-              itemCount: fields.length,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: ElevatedButton(
-                onPressed: (){},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) => fields[index],
+                itemCount: fields.length,
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: ElevatedButton(
+                onPressed: (){},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width/3,
+                    horizontal: MediaQuery.of(context).size.width/4,
                     vertical: 12,
                   ),
                   child: const Text(
                     'Update',
                     style: TextStyle(
                       fontSize: 18,
-                        color: Colors.white,
+                      color: Colors.white,
                     ),
                   ),
                 ),
-            ),
-          )
-        ],
+              ),
+            )
+          ],
+        ),
       )
     );
   }

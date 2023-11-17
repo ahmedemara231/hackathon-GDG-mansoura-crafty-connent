@@ -3,20 +3,25 @@ import 'package:flutter/material.dart';
 class Tff extends StatelessWidget {
 
   String text;
-  String hintText;
+  String? hintText;
   TextEditingController controller;
   bool? obscureText;
+  IconData? prefixIcon;
+  Widget? suffixIcon;
+
    Tff({super.key,
      required this.text,
-     required this.hintText,
+     this.hintText,
      required this.controller,
      this.obscureText,
+     this.prefixIcon,
+     this.suffixIcon,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.symmetric(vertical: 12.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -34,7 +39,7 @@ class Tff extends StatelessWidget {
             clipBehavior: Clip.antiAliasWithSaveLayer,
             decoration: BoxDecoration(
               color: Colors.blue.withOpacity(.08),
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: TextFormField(
               controller: controller,
@@ -44,7 +49,7 @@ class Tff extends StatelessWidget {
                   {
                     return 'This Field is required';
                   }
-                return null;
+                return null ;
               },
               style: const TextStyle(
                 fontSize: 20,
@@ -52,12 +57,15 @@ class Tff extends StatelessWidget {
               ),
 
               decoration: InputDecoration(
+                prefixIcon: Icon(prefixIcon),
+                suffixIcon: suffixIcon,
                 hintText: hintText,
                 hintStyle: const TextStyle(
                   fontSize: 18,
                 ),
-                enabledBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: const BorderSide(
                       color: Colors.blue,
                       width: 2,
                   ),
