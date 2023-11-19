@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:untitled12/view/main_screens/Home/specific_workers.dart';
+import 'package:untitled12/view_model/home/cubit.dart';
 import '../../../models/models.dart';
 import '../../../modules/text.dart';
 import '../../../modules/tff.dart';
@@ -19,7 +20,7 @@ class _HomeState extends State<Home> {
    
    @override
   void initState() {
-     workers = 
+     workers =
      [
        WorkerModel(workerName: 'نقّاش', workerImage: 'nakkash.png'),
        WorkerModel(workerName: 'ميكانيكي', workerImage: 'mechanic.png'),
@@ -28,11 +29,20 @@ class _HomeState extends State<Home> {
        WorkerModel(workerName: 'سبّاك', workerImage: 'sappak.png'),
        WorkerModel(workerName: 'عامل بناء', workerImage: 'building.png'),
      ];
+     HomeCubit.getInstance(context).getWorkers();
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(onPressed: ()
+          {
+            HomeCubit.getInstance(context).getAirCondWorkers();
+          }, icon: const Icon(Icons.add))
+        ],
+      ),
       backgroundColor: HexColor('FFF9F6'),
       body: SafeArea(
         child: Padding(
@@ -72,7 +82,9 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SpecificWorkers(),
+                              builder: (context) => SpecificWorkers(
+                                workers: HomeCubit.getInstance(context).workers[index],
+                              ),
                             ),
                         );
                       },

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "634870278348",
+    "project_id": "crafty-connect",
+    "storage_bucket": "crafty-connect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634870278348:android:8fe161bb302c83f9ef3a69",
+        "android_client_info": {
+          "package_name": "com.example.untitled12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2XC7MmSLQCR_TA3ht8HA5-1GXH52-nK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
