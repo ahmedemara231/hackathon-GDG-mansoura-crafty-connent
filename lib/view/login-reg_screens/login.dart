@@ -3,7 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:untitled12/view/login-reg_screens/register.dart';
 import '../../modules/text.dart';
 import '../../modules/tff.dart';
-import '../home.dart';
+import '../main_screens/Home/home.dart';
 
 class Login extends StatefulWidget {
    const Login({super.key});

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:untitled12/view/main_screens/Home/specific_workers.dart';
+import '../../../models/models.dart';
+import '../../../modules/text.dart';
+import '../../../modules/tff.dart';
 
-import '../models.dart';
-import '../modules/text.dart';
-import '../modules/tff.dart';
 
 class Home extends StatefulWidget {
    Home({super.key});
@@ -66,7 +67,15 @@ class _HomeState extends State<Home> {
                   crossAxisCount: 2,
                 ),
                     itemBuilder:(context, index) => InkWell(
-                      onTap: () {},
+                      onTap: ()
+                      {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SpecificWorkers(),
+                            ),
+                        );
+                      },
                       child: workers[index],
                     ),
                   itemCount: workers.length,

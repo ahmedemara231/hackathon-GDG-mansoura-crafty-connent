@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'modules/text.dart';
+import '../modules/text.dart';
 
 class WorkerModel extends StatelessWidget {
 
